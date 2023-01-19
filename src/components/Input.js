@@ -6,14 +6,17 @@ const Input = ({ addItem })=> {
   
     return (
         <>
-        <input onChange={(e) => {
-          setText(e.target.value)
-        }} value={text} />
-        
-        <button onClick={()=>{
-          addItem(text);
-          setText('')
-        }}>입력해라 이놈아</button> 
+          <input onChange={(e) => {
+            setText(e.target.value)
+          }} value={text} />
+          
+          <button onClick={()=>{
+            if (text==="") {
+              return null
+            }
+            addItem(text);
+            setText('')
+          }}>입력</button> 
         </>
     )
   }
